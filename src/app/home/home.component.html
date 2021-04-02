@@ -1,0 +1,58 @@
+
+
+      <mat-grid-list cols="1" rowHeight="10px" style="margin-top: auto;">
+        <mat-form-field>
+          <mat-select name="toppingList" [(value)]="selectedYear" (selectionChange)="selectMovieYear(selectedYear)"
+            placeholder="Select Year" style="cursor: pointer;">
+
+            <mat-option [value]="z" *ngFor="let z of toppingList">{{z}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <form class="example-form ">
+          <mat-form-field class="example-full-width">
+            <mat-label>Search </mat-label>
+            <input matInput placeholder="Ex. Movie Name" [(ngModel)]="nameSearch" [ngModelOptions]="{standalone: true}"
+              style="cursor: pointer;">
+
+          </mat-form-field>
+          <span class="textDiv">
+            <i class='fa fa-arrow-circle-left'>&nbsp;</i>
+            click on any of movies to get the song list....
+          </span>
+        </form>
+      </mat-grid-list>
+
+
+<mat-grid-list cols="4" rowHeight="1:1" gutterSize="20px">
+  <mat-grid-tile *ngFor="let x of filteredArray  | movieFilterPipe: nameSearch :['title','DirectedBy','Starring']"
+    data-toggle="modal" data-target="#myModal" (click)="openSongList(x,content)" style="cursor: pointer;">
+    <img src="{{x.imgUrl}}">
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Song List</h4>
+    <button type="button" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-dark">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Singers</th>
+        <th scope="col">Length(minutes)</th>
+      </tr>
+      <tr *ngFor="let y of selectedMovie.songList">
+        <td>{{y.songTitle}}</td>
+        <td>{{y.singer}}</td>
+        <td>{{y.length}}</td>
+      </tr>
+    </table>
+  </div>
+
+</ng-template>
+

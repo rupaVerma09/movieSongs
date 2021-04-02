@@ -1,0 +1,36 @@
+.mat-grid-tile {
+  background-color: rgb(34, 31, 31);
+}
+.mat-grid-list {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 50px;
+}
+.modal-body{
+  background-color: #7f7b7b;
+}
+.modal-header{
+  height: 55px;
+  background-color:  #7f7b7b;
+  color: white;
+}
+.modal-title {
+  font-size: 25px;
+}
+.example-form {
+  display: inline;
+  margin-left: 20px;
+}
+.example-full-width {
+  width: 500px;
+}
+i {
+  font-size: 24px;
+  color: darkgreen;
+}
+.textDiv {
+  margin-top: 10px;
+  margin-left: 100px;
+  font-size: large;
+  font-style: italic;
+}
